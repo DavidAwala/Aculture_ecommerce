@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base */
+:root { color-scheme: light; }
+html, body, #__next { height: 100%; }
+body {
+  @apply bg-white text-black font-ui;
+}
+
+/* Brand headline style */
+.h1-brand {
+  font-family: var(--font-serif, "Times New Roman"), serif;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+button:hover{
+  background: black;
+  color: white;
+  transition: .4s; 
+}
+/* subtle border style for premium look */
+.premium-border { border: 1px solid #000; }
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-scale {
+  animation: pulse-scale 8s ease-in-out infinite;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/* Hscroll.css */
+
+.hscroll-container {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 10rem;
+  justify-content: start;
+  background: transparent; /* no background */
+  padding: 1rem 0;
+  overflow-x: hidden;
+}
+
+.hscroll-track {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  animation: scroll var(--scroll-speed, 40s) linear infinite;
+}
+@media (max-width: 640px){
+  .hscroll-track{
+  
+  }
+}
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Each logo */
+.brand-logo {
+  width: 100px;
+  height: auto;
+  filter: brightness(0) invert(0); /* black logos by default */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.1);
+  filter: brightness(1) invert(1); /* white highlight on hover */
+}
+
+/* optional: outlined text version for mixed design */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px black;
+  font-weight: 900;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease forwards;
+}
