@@ -100,7 +100,7 @@ export default function FAQ() {
   return (
   <div>
      <Header cartCount={cart.length} onOpenCart={() => setCartOpen(true)} />
-    <main className="bg-white text-gray-900">
+    <main className="bg-white mt-10 sm:mt-2 text-gray-900">
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center text-center py-20 px-6 overflow-hidden">
         <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight uppercase">

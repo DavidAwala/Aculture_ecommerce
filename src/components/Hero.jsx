@@ -264,12 +264,12 @@ const handleSelect = (i) => {
 
       {/* .div6 { grid-area: 5 / 1 / 6 / 4; } */}
       {/* This is adjacent to div2 (starts where div2 ends) */}
-      <div className="row-[5/6] col-[1/4] bg-black border border-black p-4 z-10">
+      <div className="row-[5/6] col-[1/4] bg-black border border-black max-[640px]:p-2 p-4 z-10">
        
 
-          <div className='flex max-[640px]:flex-col flex-row justify-between px-2 sm:px-8 items-center'>
+          <div className='flex max-[640px]:gap-6 max-[640px]:flex-col flex-row justify-between px-2 sm:px-8 items-center'>
       {/* INDICATOR + TOGGLE */}
-      <div className="flex flex-col items-center gap-4 justify-center z-30">
+      <div className="flex flex-col items-center max-[640px]:mb-6 justify-center z-30">
         {/* Progress Bar */}
         <div className="w-60 max-[640px]:w-20 max-[640px]:h-[1.2rem] h-[1.5rem] bg-white overflow-hidden rounded">
           <div 
@@ -279,12 +279,12 @@ const handleSelect = (i) => {
         </div>
 
         {/* Circle Indicators */}
-        <div className="flex gap-3">
+        <div className="flex my-2 gap-3">
           {slides.map((_, i) => (
             <button 
               key={i}
               onClick={() => handleSelect(i)}
-              className={`w-3 h-3 rounded-full border border-white transition-all ${
+              className={`w-3 h-3  max-[640px]: rounded-full border border-white transition-all ${
                 current === i ? 'bg-white scale-110' : 'bg-transparent'
               }`}
             />
@@ -295,7 +295,7 @@ const handleSelect = (i) => {
                 <div className='flex flex-row justify-center items-center max-[640px]:gap-5 gap-10'>
       <button
         onClick={prevSlide}
-        className="w-16 max-[640px]:h-24 max-[640px]:text-2xl h-40 border border-white text-white flex items-center justify-center text-6xl font-bold z-30 transition"
+        className="w-16 max-[640px]:w-10 max-[640px]:h-28 max-[640px]:text-2xl h-40 border border-white text-white flex items-center justify-center text-6xl font-bold z-30 transition"
         aria-label="Previous Slide"
       >
         &lt;
@@ -303,7 +303,7 @@ const handleSelect = (i) => {
 
       <button
         onClick={nextSlide}
-        className="w-16 h-40 max-[640px]:h-24 max-[640px]:text-2xl h-40 border border-white text-white flex items-center justify-center text-6xl font-bold z-30 transition"
+        className="w-16 h-40 max-[640px]:w-10 max-[640px]:h-28 max-[640px]:text-2xl h-40 border border-white text-white flex items-center justify-center text-6xl font-bold z-30 transition"
         aria-label="Next Slide"
       > &gt; </button>   
     </div>
@@ -314,4 +314,9 @@ const handleSelect = (i) => {
     <ProductModal
           productx={selectedProduct}
           isOpen={isModalOpen}
-          onClose={() => setModalOpen(fals
+          onClose={() => setModalOpen(false)}
+        />
+  
+    </section>
+  )
+}

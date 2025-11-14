@@ -113,10 +113,10 @@ export default function About() {
           className="w-48 h-48 object-cover rounded-full shadow-2xl border-4 border-black/10"
         />
         <div className="max-w-md text-left">
-          <h3 className="text-2xl font-semibold">Awala Dave</h3>
+          <h3 className="text-2xl font-semibold">Dave</h3>
           <p className="text-gray-700 mt-3 leading-relaxed">
             A visionary web developer and brand creator, passionate about building digital
-            experiences that feel alive. Awala founded ACulture to redefine what it means
+            experiences that feel alive. Dave founded ACulture to redefine what it means
             to shop men’s wear — simple, refined, and cultural.
           </p>
           <p className="mt-4 text-gray-500 italic">
