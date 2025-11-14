@@ -16,7 +16,7 @@ const SAMPLE_PRODUCTS = [
     name: 'Tailored Linen Shirt',
     description: 'Lightweight linen shirt with neat tailored fit.',
     price: 999900, // price in kobo (₦9,999.00) - /100 later
-    images: ['/prod-shirt-1.jpg']
+    images: ['/ph_4p.png']
     ,category: 'Shirts'
   },
   {
@@ -24,7 +24,7 @@ const SAMPLE_PRODUCTS = [
     name: 'Classic Bomber Jacket',
     description: 'Everyday bomber with premium lining.',
     price: 1999900,
-    images: ['/prod-jacket-1.jpg']
+    images: ['/ph_5p.png']
     ,category: 'Outerwear'
   },
   {
@@ -32,7 +32,7 @@ const SAMPLE_PRODUCTS = [
     name: 'Everyday Tee',
     description: 'Soft cotton tee, relaxed fit.',
     price: 399900,
-    images: ['/prod-tee-1.jpg']
+    images: ['/ph_6p.png']
     ,category: 'Shirts'
   },
   {
@@ -40,7 +40,7 @@ const SAMPLE_PRODUCTS = [
     name: 'Slim Chinos',
     description: 'Tailored chinos with a modern silhouette.',
     price: 1299900,
-    images: ['/prod-chino-1.jpg']
+    images: ['/ph_7p.png']
     ,category: 'Bottoms'
   }
 ]

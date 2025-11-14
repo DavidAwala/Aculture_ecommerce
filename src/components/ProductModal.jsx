@@ -25,7 +25,7 @@ export default function ProductModal({ productx, isOpen, onClose }) {
           <div className="space-y-4">
             <div className="relative w-full h-80 md:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src={productx.image}
+                src={'ph_8p.png'}
                 alt={productx.title}
                 fill
                 className="object-cover hover:scale-110 transition duration-700"
@@ -40,7 +40,7 @@ export default function ProductModal({ productx, isOpen, onClose }) {
                   className="relative w-20 h-20 rounded-xl overflow-hidden border hover:border-black transition"
                 >
                   <Image
-                    src={img}
+                    src={`ph_${8+i}p.png`}
                     alt={`thumbnail-${i}`}
                     fill
                     className="object-cover"

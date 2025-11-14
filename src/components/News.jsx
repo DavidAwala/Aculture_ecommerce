@@ -51,19 +51,6 @@ export default function Newsletter() {
         <p className="mt-6 text-sm text-gray-400 italic transition">{message}</p>
       )}
 
-      {/* Decorative shadow images */}
-      <div className="relative mt-16 flex justify-center opacity-15 pointer-events-none">
-        <img
-          src="/images/fashion-shadow1.png"
-          alt="Decorative shadow"
-          className="w-40 md:w-56 mx-2"
-        />
-        <img
-          src="/images/fashion-shadow2.png"
-          alt="Decorative shadow"
-          className="w-40 md:w-56 mx-2"
-        />
-      </div>
     </section>
   );
 }

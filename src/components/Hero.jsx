@@ -52,7 +52,7 @@ import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image';
 import ProductModal from "../components/ProductModal";
 import Link from "next/link";
-
+import useAuth from "../hooks/useAuth";
 
 export default function Hero({ onShop, cartCount = 0, onOpenCart }) {
 
@@ -86,6 +86,8 @@ const slides = [
 
 const [current, setCurrent] = useState(0)
 const [progress, setProgress] = useState(0)
+const [open, setOpen] = useState(false);
+const { user, signOut } = useAuth();
 const duration = 10000 // 5 seconds per slide
 const intervalRef = useRef(null)
 
@@ -134,7 +136,8 @@ const handleSelect = (i) => {
         grid 
         gap-0
         grid-cols-[0.5fr_repeat(3,1fr)_1.5fr] 
-        grid-rows-[0.5fr_repeat(2,1fr)_0.5fr_1fr]
+        grid-rows-[0.1fr_repeat(2,1fr)_0.5fr_1fr]
+        lg:grid-rows-[0.5fr_repeat(2,1fr)_0.5fr_1fr]
       "
     >
     {/* div1 = grid area (row 1–4, column 5–6) */}
@@ -152,18 +155,18 @@ const handleSelect = (i) => {
         <p className="mt-8 text-sm text-gray-700">{slide.desc}</p>
       </div>
 
-      <div className="mt-8 flex items-center justify-between w-full">
+      <div className="mt-8 flex flex-col sm:flex-row items-center justify-between w-full">
         <div>
           <div className="text-xl font-bold">{slide.price}</div>
           <div className="text-xs">{slide.ls}</div>
         </div>
 
-        <div>
+        <div className="text-left">
           <button onClick={() => {
           setSelectedProduct(productExample);
           setModalOpen(true);
         }} 
-           className="px-3 py-2 border border-black rounded">
+           className="px-3 mt-6 sm:mt-0 py-2 border border-black rounded">
             View
           </button>
         </div>
@@ -178,7 +181,7 @@ const handleSelect = (i) => {
  <div className="row-[1/5] col-[1/5] border border-black p-4 flex items-center justify-center" 
   >
   {slides.map((slide, i) => (
-  <div key={i} className={`relative pt-6 z-10 w-[100%] h-[100%] md:w-[70%] md:h-[100%] ${i === current ? 'block' : 'hidden'} animate-pulse-scale`}>
+  <div key={i} className={`relative pt-6 z-10 w-[13rem] h-[15rem] md:w-[70%] md:h-[100%] ${i === current ? 'block' : 'hidden'} animate-pulse-scale`}>
     <Image
       src={slide.img}
       alt={`Slide ${i + 1}`}
@@ -210,18 +213,28 @@ const handleSelect = (i) => {
              <button onClick={onShop} className="px-4 py-2 border border-black rounded uppercase text-sm">Shop Men’s</button>
            </div>
            </div>
+           
+              {/* BACKGROUND LOGO */}
+                              <div className="sm:hidden absolute inset-0 opacity-10">
+                                <Image
+                                  src="/logo.png"
+                                  alt="bg logo"
+                                  fill
+                                  className="object-contain"
+                                />
+                              </div>
            <div className="relative b-20 w-22 h-22 flex items-center justify-center overflow-hidden">
-                    <Image src="/logo.png" alt="AC Logo" width={200} height={200}/>
+                    <Image className="hidden sm:block" src="/logo.png" alt="AC Logo" width={200} height={200}/>
                 </div>
          </div>
       </div>
 
       {/* .div5 { grid-area: 1 / 1 / 2 / 4; } */}
       {/* This overlaps div2 */}
-      <div className="row-[1/2] col-[1/4] bg-white border border-t-white border-l-white border-black p-1 z-10">
+      <div className="row-[1] col-[1/2] lg:col-[1/4] bg-white border border-t-white border-l-white border-black p-1 z-10">
        
 
-        <div className="max-w-6xl mx-auto flex items-center justify-between p-1">
+        <div className="hidden max-w-6xl mx-auto flex items-center justify-between p-1">
                 <div className="flex items-center gap-4">
                   <div className="w-22 h-22 flex items-center justify-center overflow-hidden">
                     <Image src="/logo.png" alt="AC Logo" width={80} height={80}/>
@@ -259,6 +272,107 @@ const handleSelect = (i) => {
                 </nav>
               </div>
 
+                         {/* ===== MOBILE HAMBURGER ===== */}
+                            <button
+                          onClick={() => setOpen(true)}
+                          className="lg:hidden flex p-2 flex-col gap-1 relative z-50"
+                          >
+                        <span className="w-7 h-0.5 bg-black transition-all"></span>
+                        <span className="w-7 h-0.5 bg-black transition-all"></span>
+                        <span className="w-7 h-0.5 bg-black transition-all"></span>
+                        </button>
+                 
+
+                            {/* ====== MOBILE SIDEBAR ====== */}
+                            <aside
+                              className={`fixed top-0 right-0 h-full w-72 bg-black/90 text-white z-50 transform 
+                              ${open ? "translate-x-0" : "translate-x-full"}
+                              transition-transform duration-500 ease-[cubic-bezier(.68,-0.35,.27,1.35)]`}
+                            >
+                              {/* BACKGROUND LOGO */}
+                              <div className="absolute inset-0 opacity-10">
+                                <Image
+                                  src="/logo.png"
+                                  alt="bg logo"
+                                  fill
+                                  className="object-contain"
+                                />
+                              </div>
+                      
+                              {/* CLOSE BUTTON */}
+                              <button
+                                onClick={() => setOpen(false)}
+                                className="absolute top-6 right-6 flex flex-col gap-1"
+                              >
+                                <span className="w-7 h-0.5 bg-white rotate-45 translate-y-1"></span>
+                                <span className="w-7 h-0.5 bg-white -rotate-45 -translate-y-1"></span>
+                              </button>
+                      
+                              {/* SIDEBAR NAV */}
+                              <div className="relative z-20 flex flex-col items-start gap-6 mt-28 px-8">
+                                <Link
+                                  href="/"
+                                  onClick={() => setOpen(false)}
+                                  className="uppercase text-lg font-semibold tracking-wider"
+                                >
+                                  Shop
+                                </Link>
+                      
+                                <Link
+                                  href="/about"
+                                  onClick={() => setOpen(false)}
+                                  className="uppercase text-lg font-semibold tracking-wider"
+                                >
+                                  About
+                                </Link>
+                      
+                                <Link
+                                  href="/FAQ"
+                                  onClick={() => setOpen(false)}
+                                  className="uppercase text-lg font-semibold tracking-wider"
+                                >
+                                  FAQs
+                                </Link>
+                      
+                                <button
+                                  onClick={() => {
+                                    setOpen(false);
+                                    onOpenCart?.();
+                                  }}
+                                  className="uppercase text-lg font-semibold tracking-wider border border-white px-4 py-2 rounded-md"
+                                >
+                                  Cart ({cartCount})
+                                </button>
+                      
+                                {user ? (
+                                  <button
+                                    onClick={() => {
+                                      signOut();
+                                      setOpen(false);
+                                    }}
+                                    className="uppercase text-lg mt-3 border px-4 py-2 rounded-md"
+                                  >
+                                    Sign out
+                                  </button>
+                                ) : (
+                                  <Link
+                                    href="/login"
+                                    onClick={() => setOpen(false)}
+                                    className="uppercase text-lg border px-4 py-2 rounded-md"
+                                  >
+                                    Sign in
+                                  </Link>
+                                )}
+                              </div>
+                            </aside>
+                      
+                            {/* DARK BACKDROP */}
+                            {open && (
+                              <div
+                                onClick={() => setOpen(false)}
+                                className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 md:hidden"
+                              />
+                            )}
 
       </div>
 

@@ -63,7 +63,7 @@ export default function About() {
 
       <div className="relative">
         <img
-          src="/images/menswear-showcase.png"
+          src="https://w7.pngwing.com/pngs/84/640/png-transparent-shelf-clothes-hanger-design-furniture-clothes-hanger-art.png"
           alt="Men’s fashion display"
           className="w-full rounded-2xl shadow-2xl"
         />
