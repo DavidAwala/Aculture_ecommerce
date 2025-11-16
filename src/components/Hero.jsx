@@ -234,7 +234,7 @@ const handleSelect = (i) => {
       <div className="row-[1] col-[1/2] lg:col-[1/4] bg-white border border-t-white border-l-white border-black p-1 z-10">
        
 
-        <div className="hidden max-w-6xl mx-auto flex items-center justify-between p-1">
+        <div className="hidden sm:flex max-w-6xl mx-auto items-center justify-between p-1">
                 <div className="flex items-center gap-4">
                   <div className="w-22 h-22 flex items-center justify-center overflow-hidden">
                     <Image src="/logo.png" alt="AC Logo" width={80} height={80}/>
