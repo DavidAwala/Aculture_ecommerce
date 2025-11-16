@@ -15,8 +15,8 @@ export default function Header({ cartCount = 0, onOpenCart }) {
 
           {/* LOGO */}
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-full premium-border flex items-center justify-center overflow-hidden">
-              <Image src="/logo.png" alt="AC Logo" width={56} height={56} />
+           <div className="w-22 h-22 flex items-center justify-center overflow-hidden">
+                               <Image src="/logo.png" alt="AC Logo" width={80} height={80}/>
             </div>
             <div>
               <div className="h-4" />
