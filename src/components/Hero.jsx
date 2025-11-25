@@ -275,7 +275,7 @@ const handleSelect = (i) => {
                          {/* ===== MOBILE HAMBURGER ===== */}
                             <button
                           onClick={() => setOpen(true)}
-                          className="md:hidden flex p-2 flex-col gap-1 relative z-50" style={{zindex=9999999999}}
+                          className="md:hidden flex p-2 flex-col gap-1 relative z-50" style={{zIndex: 9999999999}}
                           >
                         <span className="w-7 h-0.5 bg-black transition-all"></span>
                         <span className="w-7 h-0.5 bg-black transition-all"></span>
