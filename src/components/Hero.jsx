@@ -204,7 +204,7 @@ const handleSelect = (i) => {
 
       {/* .div4 { grid-area: 4 / 4 / 6 / 6; } */}
       {/* This overlaps div2 and div3 */}
-      <div className="row-[4/6] col-[4/6] bg-white border border-black p-4 z-20">
+      <div className="row-[4/6] col-[4/6] bg-white border border-black p-4 z-10">
         <div className="flex justify-between">
          <div className="relative">
            <h1 className="h1-brand text-4xl uppercase">A CULTURE</h1>
@@ -215,7 +215,7 @@ const handleSelect = (i) => {
            </div>
            
               {/* BACKGROUND LOGO */}
-                              <div className="sm:hidden absolute inset-0 opacity-10">
+                              <div className="sm:hidden absolute w-[20rem] h-[20rem] inset-0 opacity-30 -top-[-20rem] -right-50">
                                 <Image
                                   src="/logo.png"
                                   alt="bg logo"
@@ -256,6 +256,7 @@ const handleSelect = (i) => {
                   <a className="text-sm uppercase tracking-wider" href="#">
                     <Link href="/FAQ" className="hover:text-gray-800 font-semibold">FAQs</Link>
                       </a>
+                      
                   <button
                     onClick={() => onOpenCart?.()}
                     className="relative px-3 py-2 border border-black rounded-md"
@@ -275,7 +276,7 @@ const handleSelect = (i) => {
                          {/* ===== MOBILE HAMBURGER ===== */}
                             <button
                           onClick={() => setOpen(true)}
-                          className="md:hidden flex p-2 flex-col gap-1 relative z-50" style={{zIndex: 9999999999}}
+                          className="md:hidden flex p-2 flex-col gap-1 relative z-50"
                           >
                         <span className="w-7 h-0.5 bg-black transition-all"></span>
                         <span className="w-7 h-0.5 bg-black transition-all"></span>
@@ -295,7 +296,7 @@ const handleSelect = (i) => {
                                   src="/logo.png"
                                   alt="bg logo"
                                   fill
-                                  className="object-contain"
+                                  className="object-contain invert"
                                 />
                               </div>
                       
@@ -333,13 +334,13 @@ const handleSelect = (i) => {
                                 >
                                   FAQs
                                 </Link>
-                      
+                                <div className="flex flex-row gap-4 w-full">
                                 <button
                                   onClick={() => {
                                     setOpen(false);
                                     onOpenCart?.();
                                   }}
-                                  className="uppercase text-lg font-semibold tracking-wider border border-white px-4 py-2 rounded-md"
+                                  className="uppercase text-lg font-semibold tracking-wider border border-white px-2 py-2 rounded-md"
                                 >
                                   Cart ({cartCount})
                                 </button>
@@ -363,6 +364,7 @@ const handleSelect = (i) => {
                                     Sign in
                                   </Link>
                                 )}
+                                 </div>
                               </div>
                             </aside>
                       
@@ -378,7 +380,7 @@ const handleSelect = (i) => {
 
       {/* .div6 { grid-area: 5 / 1 / 6 / 4; } */}
       {/* This is adjacent to div2 (starts where div2 ends) */}
-      <div className="row-[5/6] col-[1/4] bg-black border border-black max-[640px]:p-2 p-4 z-10">
+      <div className="row-[5/6] col-[1/4] bg-black border border-black max-[640px]:p-2 p-4 z-5">
        
 
           <div className='flex max-[640px]:gap-6 max-[640px]:flex-col flex-row justify-between px-2 sm:px-8 items-center'>
